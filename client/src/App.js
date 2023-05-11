@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Main from './views/Main';
 import Detail from './components/Detail';
+import Update from './components/Update';
 
 //commended out import below, because we will now be using Main
 // import Forms from './components/Forms';
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route element={<Main />} path="/home" default />
           <Route element={<Detail />} path="/products/:id"  />
-
+          <Route element={<Update/>} path="/products/edit/:id"/>
+          {/* <Route element={<Detail/>} path="/products/delete/:id"/> */}
         </Routes>
       </BrowserRouter>
     </div>

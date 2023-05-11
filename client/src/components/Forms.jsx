@@ -19,8 +19,12 @@ const Forms = (props) => {
         console.log(res);
         console.log(res.data);
         setProduct ([...product, res.data]);
-      })
-      .catch (err => console.log(err));
+      }
+      )
+      .catch (err => console.log(err))
+      setTitle("")
+      setPrice("")
+      setDescription("")
   }
 
   return (
@@ -30,16 +34,16 @@ const Forms = (props) => {
                 <p>
                   
                     <label className="mx-3"  >Title</label>
-                    <input type="text" onChange = {(e) => setTitle(e.target.value)} />
+                    <input type="text" onChange = {(e) => setTitle(e.target.value)} value={title}/>
                 </p>
 
                 <p>
                     <label className="mx-3">Price</label>
-                    <input type="text" onChange = {(e) => setPrice(e.target.value)} />
+                    <input type="text" onChange = {(e) => setPrice(e.target.value)} value={price} />
                 </p>
                 <p>
                     <label className="mx-3">Description</label>
-                    <input type="text" onChange = {(e) => setDescription(e.target.value)} />
+                    <input type="text" onChange = {(e) => setDescription(e.target.value)} value={description}/>
                 </p>
                 <input type="submit" />
             </form>
