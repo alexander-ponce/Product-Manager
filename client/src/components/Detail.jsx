@@ -27,13 +27,18 @@ const Detail = (props) => {
     }
 
     return (
-        <div>
+        <div className="mt-4">
             
             <p>Title: {item.title}</p>
             <p>Price: {item.price}</p>
             <p>Description: {item.description}</p>
-            <button onClick={deleteProduct}>Delete</button>
-            <Link to={"/home"}>Go Back</Link>
+            <Link to={"/products/edit/" + item._id}>
+    Edit
+</Link>
+            <button className="btn btn-danger" onClick={deleteProduct}>Delete</button>
+            <div>
+                <Link to={"/"}>Go Back</Link>
+            </div>
         </div>
     );
 }

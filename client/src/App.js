@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 // import axios from 'axios';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import Main from './views/Main';
 import Detail from './components/Detail';
 import Update from './components/Update';
@@ -17,6 +17,7 @@ function App() {
           <Route element={<Main />} path="/home" default />
           <Route element={<Detail />} path="/products/:id"  />
           <Route element={<Update/>} path="/products/edit/:id"/>
+          <Route element={<Navigate to ="/home" />} path="/"/>
           {/* <Route element={<Detail/>} path="/products/delete/:id"/> */}
         </Routes>
       </BrowserRouter>
