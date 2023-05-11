@@ -27,17 +27,17 @@ const Detail = (props) => {
     }
 
     return (
-        <div className="mt-4">
+        <div className="mt-4 bg-dark text-white p-4">
             
-            <p>Title: {item.title}</p>
+            <h4>Title: {item.title}</h4>
             <p>Price: {item.price}</p>
             <p>Description: {item.description}</p>
-            <Link to={"/products/edit/" + item._id}>
+            <div >
+            <Link className="btn btn-warning" to={"/products/edit/" + item._id}>
     Edit
 </Link>
-            <button className="btn btn-danger" onClick={deleteProduct}>Delete</button>
-            <div>
-                <Link to={"/"}>Go Back</Link>
+            <button className="btn btn-danger mx-2" onClick={deleteProduct}>Delete</button>
+                <Link className="btn btn-primary" to={"/"}>Go Back</Link>
             </div>
         </div>
     );

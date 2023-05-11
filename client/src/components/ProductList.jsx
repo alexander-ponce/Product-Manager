@@ -34,24 +34,33 @@ const ProductList = (props) => {
     }, []);
     
     return (
-        <div>
-            <h1>Product List</h1>
+        <div className="row mx-3">
+            <div className="col-md-12 mb-2 ">
+                <h2>Product List</h2>
+            </div>
             {
                 product.map((item, index)=>{
                 return (
-                    <div key={index}> 
-                        {/* <p>{item.title}</p>
-                        <p>{item.price}</p> */}
-                        {/* <p>{item.description}</p> */}
-                        <Link to={`/products/${item._id}`}> {item.title}'s Page! </Link>
-                        <Link to={"/products/edit/" + item._id}>
-    Edit
-</Link>
-                        <button onClick={(e)=>{deleteProduct(item._id)}}>
-                            Delete
-                        </button>
+                    
+                    <div className="col-md-4" key={index}> 
+                        <div className="card-mb-4 bg-dark text-white p-4 mt-3" key={index}> 
+                            <div className="card-mb-4" key={index}>
+                                <h4 className="card-title">{item.title}</h4>
+                                <p className="card-text"> Price: {item.price}</p>
+                                {/* <p>{item.title}</p>
+                                <p>{item.price}</p> */}
+                                {/* <p>{item.description}</p> */}
+                                <Link to={`/products/${item._id}`} className="m-2 btn btn-primary" > {item.title}'s Page! </Link>
+                                <Link to={"/products/edit/" + item._id} className="m-2 btn btn-warning" >
+        Edit
+    </Link>
+                                <button onClick={(e)=>{deleteProduct(item._id)}} className="m-2 btn btn-danger">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
                     </div>
-            )})}
+                    )})}
         </div>
     )
 }
