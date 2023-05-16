@@ -17,6 +17,9 @@ const Forms = (props) => {
   const onSubmitHandler = e => {
     e.preventDefault();
     onSubmitProp({ title, price, description });
+    setTitle("") 
+    setPrice("")
+    setDescription("")
 }
 
   //commented out, no longer using code below after refactoring
@@ -43,6 +46,10 @@ const Forms = (props) => {
     <div>
       <form onSubmit={onSubmitHandler}>
         <h1>Product Manager</h1>
+        { errors.title ?
+        <p>{errors.title.message}</p>
+        : ""
+        }
                 <p>
                   
                     <label className="mx-3"  >Title</label>
