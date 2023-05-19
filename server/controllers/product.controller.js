@@ -13,9 +13,9 @@ module.exports = {
 
      // Read (all)
     findAllProducts: (req, res) => {
-        Product.find()
-        .then(allProducts => res.json(allProducts))
-        .catch(err => res.json(err));
+        Product.find({})
+        .then((allProducts) => {res.json(allProducts)})
+        .catch(err => res.status(400).json({msg: "somthing went wrong", error:err}));
     },
 
     // Read (one)

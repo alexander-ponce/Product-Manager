@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import {Link} from 'react-router-dom';
 import DeleteButton from '../components/DeleteButton';
 
@@ -11,22 +11,24 @@ const ProductList = (props) => {
     //replaced code below
     // const {removeFromDom, product, setProduct} = props;
 
-    const [product, setProduct] = useState([]);
+    // const [product, setProduct] = useState([]);
+    const {productList, removeFromDom} = props;
 
-    useEffect(()=>{
-        axios.get("http://localhost:8000/api/products")
-        .then((res)=>{
-        console.log(res.data);
-            setProduct(res.data);
-    }, [])
-        .catch((err)=>{
-            console.log(err);
-        });
-    }, []);
+    //removed useEffect and removeFromDom because I sent the code was sent to the main parent component
+    // useEffect(()=>{
+    //     axios.get("http://localhost:8000/api/products")
+    //     .then((res)=>{
+    //     console.log(res.data);
+    //         setProduct(res.data);
+    // }, [])
+    //     .catch((err)=>{
+    //         console.log(err);
+    //     });
+    // }, []);
 
-    const removeFromDom = itemId => {
-        setProduct(product.filter(item => item._id !== itemId))
-    }
+    // const removeFromDom = itemId => {
+    //     setProduct(product.filter(item => item._id !== itemId))
+    // }
     
     //commented out for refactoring
     // const deleteProduct = (itemId) => {
@@ -50,7 +52,7 @@ const ProductList = (props) => {
                 <h2>Product List</h2>
             </div>
             {
-                product.map((item, index)=>{
+                productList.map((item, index)=>{
                 return (
                     
                     <div className="col-md-4 rounded" key={index}> 
